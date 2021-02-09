@@ -1,0 +1,1649 @@
+<DATA>
+
+	<ROW>
+		<email_id>1</email_id>
+		<journal_id>1</journal_id>
+		<email_key>1</email_key>
+		<subject>{$manuscriptId} New Submission</subject>
+		<body>Please, do not reply to this email.
+
+A new article has been submitted to {$journalTitle}.
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Corresponding author:
+{$correspondingAuthor}
+
+Authors:
+{$otherAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>2</email_id>
+		<journal_id>1</journal_id>
+		<email_key>2</email_key>
+		<subject>{$manuscriptId} Submission Acknowledgment</subject>
+		<body>Please, do not reply to this email.
+
+Dear {$authorFullName},
+
+Thank you for your submission of the article "{$submissionTitle}"
+(manuscript ID {$manuscriptId}) to {$journalTitle}.
+
+With the online journal management system that we are using,
+you will be able to track its progress through the editorial process
+by logging in at {$journalUrl} and choosing "Track submissions" in
+Author's role menu list.
+
+If you have any questions, please contact me. Thank you for
+considering {$journalTitle} as a venue for your work.
+
+Sincerely,
+Sonia Petrone
+Editor of Statistical Science
+sonia.petrone@unibocconi.it
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>3</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4</email_key>
+		<subject>{$manuscriptId} Decision Acknowledgment</subject>
+		<body>Dear {$editorFullName},
+
+Thank you for reviewing my submission {$manuscriptId} to {$journalTitle}. 
+
+Sincerely,
+{$authorFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>4</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4096</email_key>
+		<subject>{$manuscriptId} Evaluation Request</subject>
+		<body>Dear {$evaluatorFullName},
+
+Would you be willing to let me know your "quick opinion" (short
+evaluation) about the manuscript {$manuscriptId} submitted to
+{$journalTitle} regarding:
+(i) the suitability of the subject matter for the journal, and
+(ii) the quality and importance of the main results.
+Your opinion will help me to decide if this submission should go
+through the full refereeing process or should be rejected
+immediately. 
+
+Information about this submission is given below.
+
+Please log in to the journal's EJMS site at {$journalUrl},
+find this submission in your Current evaluations list and confirm
+your willingness or unwillingness to undertake the evaluation.
+If you have any questions concerning the usage of EJMS,
+please contact Editorial Assistant Geri Mattson
+(mattsonpublishingservices@comcast.net).
+
+Please let me know by {$evaluationDueDateAck} if you will undertake this task.
+I would appreciate receiving your evaluation by {$evaluationDueDate}.
+
+Thank you for considering this request.
+
+{$editorFullName}
+Editor of Statistical Science
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>5</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4097</email_key>
+		<subject>{$manuscriptId} Accept Evaluation Request</subject>
+		<body>Dear {$editorFullName},
+
+I am willing to undertake the evaluation of the article {$manuscriptId} 
+by the required date.
+
+{$evaluatorFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>6</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4098</email_key>
+		<subject>{$manuscriptId} Decline Evaluation Request</subject>
+		<body>Dear {$editorFullName},
+
+I am unable to undertake the evaluation of the article {$manuscriptId} 
+by the required date.
+
+{$evaluatorFullName} 
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>7</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4099</email_key>
+		<subject>{$manuscriptId} Evaluation Request</subject>
+		<body>Dear {$evaluatorFullName},
+
+Just a gentle reminder of our request for your short evaluation
+of the submission {$manuscriptId} for possible publication
+in {$journalTitle}. Information about this submission is given below.
+
+We were hoping to have this evaluation by {$evaluationDueDate}.
+
+The submission is to be found by logging in to EJMS at {$journalUrl}.
+If you have any questions concerning the usage of EJMS,
+please contact Editorial Assistant Geri Mattson
+(mattsonpublishingservices@comcast.net).
+
+Thank you.
+{$editorFullName}
+Editor of Statistical Science
+
+P.S. If by any reason you don't have your account in EJMS,
+please send e-mail message to Editorial Assistant Geri Mattson
+(mattsonpublishingservices@comcast.net) and she will help you.
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>8</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4100</email_key>
+		<subject>{$manuscriptId} Cancelling Evaluation Request</subject>
+		<body>Dear {$evaluatorFullName},
+
+We no longer require your evaluation of the submission{$manuscriptId} 
+to {$journalTitle} as we have received other evaluations which will 
+be adequate. We hope, however, to be able to call on you again in the future.
+
+Thank you,
+{$editorFullName}
+Editor of Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>9</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4101</email_key>
+		<subject>{$manuscriptId} Evaluation Completed</subject>
+		<body>Dear {$editorFullName},
+
+I have completed an evaluation of the submission {$manuscriptId}
+for {$journalTitle}. My decision is {$evaluatorDecision}.
+My comments are the following:
+{$evaluatorComments}
+
+If you have any questions, please get in touch with me.
+
+{$evaluatorFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>10</email_id>
+		<journal_id>1</journal_id>
+		<email_key>4102</email_key>
+		<subject>{$manuscriptId} Evaluation Acknowledgment</subject>
+		<body>Dear {$evaluatorFullName},
+
+Thank you for completing the evaluation of the submission {$manuscriptId} 
+to {$journalTitle}. 
+We appreciate your contribution to the quality of the work that we publish.
+
+{$editorFullName}
+Executive Editor, Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>11</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8192</email_key>
+		<subject>{$manuscriptId} Recommendation Request</subject>
+		<body>Dear {$assocEditorFullName},
+
+You have been assigned to manage the review process of the submission {$manuscriptId} 
+to {$journalTitle}. Information about this submission is given below.
+
+Please log in to the EJMS site at {$journalUrl}, find this submission in 
+your Current reviews list and confirm your willingness to undertake this 
+assignment. In addition to managing submission reviews, this will entail 
+providing a report with a recommendation regarding publication in {$journalTitle}.
+
+Please let me know by {$recommendationDueDateAck} if you will
+undertake this task. I would appreciate receiving your report
+by {$recommendationDueDate}.
+
+Thank you,
+{$editorFullName},
+Editor of Statistical Science
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>12</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8193</email_key>
+		<subject>{$manuscriptId} Accept Recommendation Request</subject>
+		<body>Dear {$editorFullName},
+
+
+I am willing to undertake the managing the review process of the
+submission {$manuscriptId} to {$journalTitle} by the required date.
+
+{$assocEditorFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>13</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8194</email_key>
+		<subject>{$manuscriptId} Decline Recommendation Request</subject>
+		<body>Dear {$editorFullName},
+
+I am unable to undertake the managing the review process
+of the submission {$manuscriptId} to {$journalTitle}
+by the required date.
+
+My comments are the following:
+{$comments}
+
+{$assocEditorFullName}
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>14</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8195</email_key>
+		<subject>{$manuscriptId} Recommendation Request</subject>
+		<body>Dear {$assocEditorFullName},
+
+Just a gentle reminder of our request for your report concerning
+the submission {$manuscriptId} to {$journalTitle}.
+Information about this submission is given below.
+
+We were hoping to have this report by {$recomendationDueDate}.
+
+The submission is to be found by logging in at {$journalUrl}.
+
+If you have any questions, please contact me.
+
+{$editorFullName},
+Editor of Statistical Science
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>15</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8196</email_key>
+		<subject>{$manuscriptId} Cancelling Recommendation Request</subject>
+		<body>Dear {$assocEditorFullName},
+
+This is to let you know that I have requested an another editor
+to manage the review process of the submission {$manuscriptId}
+to {$journalTitle}.
+Your report for this submission is not longer required.
+
+Thank you,
+{$editorFullName}
+Editor of Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>16</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8197</email_key>
+		<subject>{$manuscriptId} Recommendation Completed</subject>
+		<body>Dear {$editorFullName},
+
+I have completed managing the review process of the submission {$manuscriptId} to {$journalTitle}. 
+
+My recommendation is {$assocEditorRecommendation}.
+My comments are the following:
+{$assocEditorComments}
+
+{$assocEditorFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>17</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8198</email_key>
+		<subject>{$manuscriptId} Recommendation Acknowledgment</subject>
+		<body>Dear $assocEditorFullName,
+
+Thank you for managing the review process of the submission {$manuscriptId} 
+to {$journalTitle}.
+
+{$editorFullName},
+Editor of Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>18</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12288</email_key>
+		<subject>{$manuscriptId} Review Request</subject>
+		<body>Dear {$refereeFullName},
+
+Would you be willing to review the submission {$manuscriptId} 
+for possible publication in {$journalTitle}?
+
+Information about this submission is given below.
+
+We use a system called the Electronic Journal Management System (EJMS) for editorial management of the journal. EJMS allows us a considerable time and cost savings on administrative tasks which can instead be focused on the journal itself. We greatly appreciate your time in using this system.
+
+If you are already registered with EJMS, please skip to the heading “REGISTERED WITH EJMS”
+
+NOT-REGISTERED WITH EJMS
+If you are not registered in EJMS, you must do so. Please go to the address
+
+{$reviewTaskUrl}
+
+and enter the email address to which this message was sent. This will give you access to this submission. Please click “update profile” in the upper right corner to complete your profile and generate a user name and password. Note, if you do not do this you must save this link for any future access to this submission (e.g., when uploading the review report and your recommendation).
+
+REGISTERED WITH EJMS
+If you are registered in EJMS then log in to the EJMS site at 
+{$journalUrl},find this submission in your Current reviews list and confirm your willingness to undertake the review.
+
+If you cannot undertake this review, any suggestions of names and emails of other suitable referees would be appreciated. You may supply your suggestions in the Comments field or in the e-mail message which will appear if you decline this review request. 
+
+The journal's guidelines for reviewing appear at {$reviewGuidelinesUrl} 
+If you have any questions concerning the usage of EJMS,
+please contact Editorial Assistant Kristina Mattson (sts@mattsonpublishing.com).
+
+Please let me know by {$reviewDueDateAck} if you will undertake this
+task. I would appreciate receiving your review by {$reviewDueDate}.
+
+Thank you for considering this request.
+
+{$assocEditorFullName},
+ Associate Editor of Statistical Science
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>19</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12289</email_key>
+		<subject>{$manuscriptId} Accept Review Request</subject>
+		<body>Dear {$assocEditorFullName},
+
+I am willing to undertake the review of the article {$manuscriptId}
+by the required date.
+
+{$refereeFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>20</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12290</email_key>
+		<subject>{$manuscriptId} Decline Review Request</subject>
+		<body>Dear {$assocEditorFullName},
+
+I am unable to undertake the review of the article {$manuscriptId}
+by the required date.
+
+{$refereeFullName} 
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>21</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12291</email_key>
+		<subject>{$manuscriptId} Review Request</subject>
+		<body>Dear {$refereeFullName},
+
+Just a gentle reminder of our request for your review
+of the submission {$manuscriptId} for possible publication
+in {$journalTitle}.
+Information about this submission is given below.
+
+We were hoping to have this review by {$reviewDueDate}.
+
+If you are already registered with EJMS, please skip to the heading
+"REGISTERED WITH EJMS"
+
+NOT-REGISTERED WITH EJMS
+If you are not registered with EJMS, you must do so. Please go to the address
+
+{$reviewTaskUrl}
+
+and enter the email address to which this message was sent.
+This will give you access to this submission.
+Please click "update profile" in the upper right corner to complete
+your profile and generate a user name and password. Note that if you
+do not do this then you must save this link for any future access
+to this submission (e.g., when uploading the review report and your
+recommendation).
+
+REGISTERED WITH EJMS
+If you are registered in EJMS then log in to the EJMS site at
+
+{$journalUrl},
+
+find this submission in your Current reviews list.
+
+If you have any questions concerning the usage of EJMS,
+please contact Editorial Assistant Geri Mattson (mattsonpublishingservices@comcast.net).
+
+Thank you.
+
+{$assocEditorFullName},
+Associate Editor of Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>22</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12292</email_key>
+		<subject>{$manuscriptId} Cancelling Review Request</subject>
+		<body>Dear {$refereeFullName},
+
+We no longer require your review of the submission {$manuscriptId}
+to {$journalTitle} as we have received other reviews which will be adequate. 
+We hope, however, to be able to call on you again in the future.
+
+Thank you,
+
+{$assocEditorFullName},
+Associate Editor of Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>23</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12293</email_key>
+		<subject>{$manuscriptId} Review Completed</subject>
+		<body>Dear {$assocEditorFullName},
+
+I have completed a review of the submission {$manuscriptId}
+to {$journalTitle}. 
+
+My decision is {$refereeDecision}. 
+
+My comments are the following:
+{$refereeComments}
+
+You will find my anonymous report to author at {$journalUrl}.
+If you have any questions, please get in touch with me.
+
+{$refereeFullName}
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>24</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12294</email_key>
+		<subject>{$manuscriptId} Review Acknowledgment</subject>
+		<body>Dear {$refereeFullName},
+
+Thank you for completing the review of the submission {$manuscriptId} 
+to {$journalTitle}.
+We appreciate your contribution to the quality of the work that we publish.
+
+{$editorFullName},
+Editor of Statistical Science
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>25</email_id>
+		<journal_id>1</journal_id>
+		<email_key>16384</email_key>
+		<subject>{$manuscriptId} New Revision</subject>
+		<body>Dear {$editorFullName},
+
+please find at {$journalTitle} journal URL the revised version
+of my submission {$manuscriptId} to this journal.
+
+Sincerely,
+{$authorFullName}
+
+Submission URL: {$submissionUrlEditor}
+
+Title:
+{$articleTitle}
+
+Corresponding author:
+{$correspondingAuthor}
+
+Other Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>26</email_id>
+		<journal_id>1</journal_id>
+		<email_key>16385</email_key>
+		<subject>{$manuscriptId} Revision Acknowledgment</subject>
+		<body>Dear {$authorFullName},
+
+Thank you for submission of the revised version of your article "{$articleTitle}" 
+(manuscript ID {$manuscriptId}) to {$journalTitle} journal.
+
+With the online journal management system that we are using, you will be 
+able to track its progress through the editorial process by logging in 
+at {$journalUrl} and choosing "Track submissions" in Author's role menu list.
+
+If you have any questions, please contact me.
+
+{$editorFullName}
+Editor of Statistical Science
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>27</email_id>
+		<journal_id>1</journal_id>
+		<email_key>16386</email_key>
+		<subject>{$manuscriptId} Revision Request</subject>
+		<body>Dear {$authorFullName},
+
+Just a gentle reminder of our request for the revised version
+of your submission {$manuscriptId} for possible publication
+in {$journalTitle}.
+Information about this submission is given below.
+
+If you have any questions, please contact me.
+
+Peter Green
+Editor of Statistical Science
+
+
+Submission URL: {$submissionUrlAuthor}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>28</email_id>
+		<journal_id>1</journal_id>
+		<email_key>16388</email_key>
+		<subject>{$manuscriptId} Decision Acknowledgment</subject>
+		<body>Dear {$editorFullName},
+
+Thank you for reviewing my submission {$manuscriptId}
+to {$journalTitle}.
+
+Sincerely,
+{$authorFullName}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>29</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20480</email_key>
+		<subject>Decision "Accept" on paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+Thank you for submitting your paper "{$articleTitle}" 
+for possible publication in {$journalTitle}.
+I am delighted to inform you that your revised manuscript is now officially 
+accepted for publication in {$journalTitle}. Congratulations on a fine piece of work.
+
+My comments are the following:
+{$editorCommentsToAuthor}
+
+To begin the production process, our formal procedure is as follows:  
+
+* Please be sure that your paper is in manuscript format (not the two
+column Statistical Science style), with one-inch margins all around.
+Please see a recent issue of Statistical Science for a sample
+reference style format.
+
+* Make sure that your article has an abstract and key words and
+phrases. LaTex files are preferred (be sure that they will compose
+without requiring external files), and MS Word and WordPerfect are
+also acceptable. Encapsulated Postscript files (.eps) are preferred
+for artwork but we will also accept .tif and .gif files.
+
+* Please send your manuscript and source files to the publisher. Send all files mentioned above via email along with a PDF or PS file generated from your final source files to                                                                                                                          
+                sts@mattsonpublishing.com 
+
+If your message cannot be delivered due to the size of the attachments please send the files to mps-production@comcast.net.
+
+* The reference number for your manuscript is {$transmittalNo}. Please use this
+number in all future correspondence regarding your manuscript.
+For each author, please provide the following information:
+
+  o Name
+  o Title
+  o Affiliation
+  o Complete mailing address
+  o Email address
+
+and please identify the corresponding author.
+
+I encourage you, if at all possible, to pay publication charges.
+More information will be included with your page proofs.
+
+You should expect to receive the galley proofs of your paper about
+4 to 6 weeks after the typesetters have received the final version
+of your manuscript. Please be sure to notify Mattson Publishing
+if you will be away from your mail address for an extended period
+when the galleys are expected to arrive.
+
+Once again, I offer my congratulations on an excellent contribution
+to our journal. I appreciate your interest in publishing in
+{$journalTitle}.
+
+
+Sincerely,
+{$editorFullName},
+Editor of Statistical Science
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>30</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20481</email_key>
+		<subject>Decision "Minor revision required" on paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+Thank you for submitting your paper "{$articleTitle}"
+for possible publication in {$journalTitle}.
+It has now been carefully reviewed and my decision is: Revision required.
+
+My comments are the following:
+{$editorCommentsToAuthor}
+
+To submit your revision, please log in to EJMS and submit it as
+a revised file to original submission. Please also include a detailed
+description of how you addressed all the points raised
+by the reviewers.
+
+Thank you for considering Statistical Science as a venue for your work.
+
+Sincerely,
+{$editorFullName}
+Editor of Statistical Science
+{$pricipalContactEmail}
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>31</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20482</email_key>
+		<subject>Decision "Major revision required" on paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+Thank you for submitting your paper "{$articleTitle}" for possible publication in {$journalTitle}.
+It has now been carefully reviewed and my decision is: Revision required.
+
+My comments are the following:
+{$editorCommentsToAuthor}
+
+To submit your revision, please log in to EJMS and submit it
+as a revised file to original submission. Please also include
+a detailed description of how you addressed all the points raised
+by the reviewers.
+
+Thank you for considering Statistical Science as a venue for your work.
+
+Sincerely,
+{$editorFullName}
+Editor of Statistical Science
+{$pricipalContactEmail}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>32</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20483</email_key>
+		<subject>Decision "Reject with resubmission" on paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+Thank you for submitting your paper "{$articleTitle}" for 
+possible publication in {$journalTitle}.
+
+It has now been carefully reviewed and I have concluded that 
+it is not suitable for {$journalTitle}.
+
+As you may know, Statistical Science is a review journal. We publish
+articles that review statistical methodology or applications, with an
+occasional history piece. The methodological reviews typically look
+at a fairly broad class of methods (for example, generalized linear
+models), while the applications review would cover the subject matter
+in depth, in addition to the reviewing the statistical methodologies.
+For more information about the editorial policy of Statistical
+Science, please see http://www.imstat.org/sts/.
+
+{$editorCommentsToAuthor}
+
+Thank you for considering {$journalTitle} as a venue for your work.
+I wish you success in finding a suitable outlet for publication.
+
+Sincerely,
+{$editorFullName}
+Editor of Statistical Science
+{$pricipalContactEmail}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>33</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20484</email_key>
+		<subject>Decision "Reject" on paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+Thank you for submitting your paper "{$articleTitle}" for possible 
+publication in {$journalTitle}.
+It has now been carefully reviewed and I have concluded that it is 
+not suitable for {$journalTitle}.
+
+As you may know, Statistical Science is a review journal. We publish
+articles that review statistical methodology or applications,
+with an occasional history piece. The methodological reviews
+typically look at a fairly broad class of methods (for example,
+generalized linear models), while the applications review would cover
+the subject matter in depth, in addition to the reviewing
+the statistical methodologies. For more information about
+the editorial policy of Statistical Science, please see
+https://imstat.org/journals-and-publications/statistical-science/statistical-science-editorial-policy/.
+
+{$editorCommentsToAuthor}
+
+Thank you for considering {$journalTitle} as a venue for your work.
+I wish you success in finding a suitable outlet for publication.
+
+Sincerely,
+{$editorFullName}
+Editor of Statistical Science
+{$pricipalContactEmail}
+
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>34</email_id>
+		<journal_id>1</journal_id>
+		<email_key>24576</email_key>
+		<subject>New user registration</subject>
+		<body>Please, do not reply to this email.
+
+Your registration has been accepted.
+You can now login to the website {$journalUrl}
+using the credentials provided during registration:
+    Username: {$username}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>564</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20486</email_key>
+		<subject>Decision recommendation on paper {$manuscriptId}</subject>
+		<body>Dear {$eicFullName},
+
+A decision for the following paper has been prepared for your
+approval.
+
+My decision is:
+  {$editorDecision}
+
+My comments are the following:
+ {$editorCommentsToAuthor}
+
+Sincerely,
+{$editorFullName}
+{$editorTitle}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>103</email_id>
+		<journal_id>1</journal_id>
+		<email_key>28673</email_key>
+		<subject>Withdrawal of paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+This is to inform you that your paper
+"{$articleTitle}"
+submitted for publication in {$journalTitle} has been withdrawn from submission queue.
+
+My comments
+{$withdrawalComments}
+
+Thank you for considering {$journalTitle} as a venue for your work.
+
+Sincerely,
+{$editorFullName}
+Editor of {$journalTitle}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>106</email_id>
+		<journal_id>1</journal_id>
+		<email_key>28672</email_key>
+		<subject>{$manuscriptId} Withdraw Request</subject>
+		<body>Dear {$editorFullName},
+
+This is to inform you that I would like to withdraw my paper
+"{$articleTitle}"
+submitted for publication in {$journalTitle}.
+
+The reasons of withdrawal are the following:
+
+{$withdrawRequestComments}
+
+Thank you for your efforts handling my submission in the Peer Review process.
+
+Sincerely,
+{$authorFullName}
+
+Submission URL: {$journalUrl}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>109</email_id>
+		<journal_id>1</journal_id>
+		<email_key>28675</email_key>
+		<subject>Recalling the withdrawal of paper {$manuscriptId}</subject>
+		<body>Dear {$authorFullName},
+
+This is to inform you that the withdrawal of your paper
+"{$articleTitle}"
+submitted for publication in {$journalTitle} has been recalled.
+The paper is returned back to submission queue.
+
+Thank you for considering {$journalTitle} as a venue for your work.
+
+Sincerely,
+{$editorFullName}
+Editor of {$journalTitle}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>114</email_id>
+		<journal_id>1</journal_id>
+		<email_key>20485</email_key>
+		<subject>New paper accepted {$transmittalNo}</subject>
+		<body>The following paper has been accepted for publication
+in {$journalTitle}.
+
+Transmittal Number:   {$transmittalNo}     Manuscript Number:  {$manuscriptId}
+
+No. of manuscript pages: {$numberPages}  Number of figures: {$numberFigures}
+
+DOI: {$doi}
+
+Title: {$articleTitle}
+
+Running Head: {$runningHead}
+
+Author(s):  {$articleAuthors}
+
+Date received:  {$dateReceived}  Revision received:  {$dateRevision}
+
+Date accepted: {$dateAccepted}
+
+Corresponding author: {$correspondingAuthor}
+
+E-mail address of corresponding author: {$correspondingAuthorEmail}
+
+Address of corresponding author: {$correspondingAuthorAddress}
+
+URL for paper:
+{$submissionFileURL}
+
+URL for paper XML:
+{$submissionXmlURL}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>161</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12295</email_key>
+		<subject>{$manuscriptId} Review Invitation Reminder First</subject>
+		<body>Please do not reply to this email.
+
+Dear {$refereeFullName},
+
+Just a gentle reminder of our request for your review of the 
+submission {$manuscriptId} for possible publication in {$journalTitle}.
+Information about this submission is given below.
+
+We hope to receive your consent/refusal to review the paper in the next few days.
+
+If you are already registered with EJMS, please skip to the heading
+"REGISTERED WITH EJMS"
+
+NOT-REGISTERED WITH EJMS
+If you are not registered with EJMS, you must do so. Please go to the address
+
+{$reviewTaskUrl}
+
+and enter the email address to which this message was sent.
+This will give you access to this submission.
+Please click "update profile" in the upper right corner to complete
+your profile and generate a user name and password. Note that if you
+do not do this then you must save this link for any future access
+to this submission (e.g., when uploading the review report and your
+recommendation).
+
+REGISTERED WITH EJMS
+If you are registered in EJMS then log in to the EJMS site at
+
+{$journalUrl},
+
+find this submission in your New reviews list.
+
+If you have any questions concerning the usage of EJMS, please contact 
+Editorial Assistant Geri Mattson (mattsonpublishingservices@comcast.net).
+
+With thanks for helping us produce the {$journalTitle},
+
+--
+{$senderFullName}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>162</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12296</email_key>
+		<subject>{$manuscriptId} Review Invitation Reminder Periodic</subject>
+		<body>Please do not reply to this email.
+
+Dear {$refereeFullName},
+
+We need your response on the paper we sent you on {$dateAssigned}!
+({$articleTitle})
+
+We are trying to provide a timely response to our authors, two months 
+being the goal for refereeing.
+
+Please login to EJMS and send us your consent/refusal to review the paper 
+as soon as possible.
+
+If you are already registered with EJMS, please skip to the heading
+"REGISTERED WITH EJMS"
+
+NOT-REGISTERED WITH EJMS
+If you are not registered with EJMS, you must do so. Please go to the address
+
+{$reviewTaskUrl}
+
+and enter the email address to which this message was sent.
+This will give you access to this submission.
+Please click "update profile" in the upper right corner to complete
+your profile and generate a user name and password. Note that if you
+do not do this then you must save this link for any future access
+to this submission (e.g., when uploading the review report and your
+recommendation).
+
+REGISTERED WITH EJMS
+If you are registered in EJMS then log in to the EJMS site at
+
+{$journalUrl},
+
+find this submission in your New reviews list.
+
+--
+{$senderFullName}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>163</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12297</email_key>
+		<subject>{$manuscriptId} Review Completion Reminder First</subject>
+		<body>Please do not reply to this email.
+
+Dear {$refereeFullName},
+
+We hope you will be able to finish reviewing {$manuscriptId} within the next
+week as we need to provide prompt response to prospective authors.  If you are
+too short of time to give an extended technical review, your opinion about the
+paper's basic qualities remains important to us.  If there is any other
+information that you need to help with your report please let us know
+immediately, by emailing the Editor or Associate Editor who invited you to do
+this review.
+
+If you are already registered with EJMS, please skip to the heading "REGISTERED
+WITH EJMS"
+
+NOT-REGISTERED WITH EJMS If you are not registered with EJMS, you must do so.
+Please go to the address
+
+{$reviewTaskUrl}
+
+and enter the email address to which this message was sent.  This will give you
+access to this submission.  Please click "update profile" in the upper right
+corner to complete your profile and generate a user name and password. Note
+that if you do not do this then you must save this link for any future access
+to this submission (e.g., when uploading the review report and your
+recommendation).
+
+REGISTERED WITH EJMS If you are registered in EJMS then log in to the EJMS site at
+
+{$journalUrl},
+
+find this submission in your Current reviews list.
+
+With thanks again for helping us produce the {$journalTitle},
+
+--
+{$senderFullName}
+
+Title: {$articleTitle}
+
+Authors: {$articleAuthors}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>164</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12304</email_key>
+		<subject>{$manuscriptId} Review Completion Reminder Periodic</subject>
+		<body>Please do not reply to this email.
+
+Dear {$refereeFullName},
+
+We need your report on the paper we sent you on {$dateAssigned}!
+({$articleTitle})
+
+We are trying to provide a timely response 
+to our authors, two months being the goal for refereeing.
+If you are too short of time to give an extended technical review, your
+opinion about the paper's basic qualities remains important to us. 
+
+Please submit your report to EJMS in the next few days, or, if this isn't possible,
+let us know right away, by emailing the Editor or Associate Editor
+who invited you to do this review. 
+
+If you are already registered with EJMS, please skip to the heading
+"REGISTERED WITH EJMS"
+
+NOT-REGISTERED WITH EJMS
+If you are not registered with EJMS, you must do so. Please go to the address
+
+{$reviewTaskUrl}
+
+and enter the email address to which this message was sent.
+This will give you access to this submission.
+Please click "update profile" in the upper right corner to complete
+your profile and generate a user name and password. Note that if you
+do not do this then you must save this link for any future access
+to this submission (e.g., when uploading the review report and your
+recommendation).
+
+REGISTERED WITH EJMS
+If you are registered in EJMS then log in to the EJMS site at
+
+{$journalUrl},
+
+find this submission in your Current reviews list.
+
+--
+{$senderFullName}
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>504</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12306</email_key>
+		<subject>{$manuscriptId} Review Request (cont.)</subject>
+		<body>Dear {$refereeFullName},
+
+Would you be willing to review the submission {$manuscriptId}
+for possible publication in {$journalTitle}?
+Information about this submission is given below.
+
+Please go to the address
+ 
+{$reviewTaskUrl}
+
+or log in to the EJMS site at {$journalUrl},
+find this submission in your Current reviews list and confirm your
+willingness to undertake the review. If you cannot undertake this
+review, any suggestions of names and emails of other suitable
+referees would be appreciated. You may supply your suggestions
+in the Comments field or in the e-mail message which will appear
+if you decline this review request.
+
+Please let me know by {$reviewDueDateAck} if you will undertake this
+task. I would appreciate receiving your review by {$reviewDueDate}.
+
+Thank you for considering this request.
+
+{$assocEditorFullName}
+Associate Editor of Statistical Science
+
+Title:
+{$articleTitle}
+
+Authors:
+{$articleAuthors}
+
+Abstract:
+{$articleAbstract}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>626</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8199</email_key>
+		<subject>{$manuscriptId} Repeat Recommendation Request</subject>
+		<body>Dear {$assocEditorFullName},
+
+I would like to return the submission {$manuscriptId}
+to you to repeat/continue the review process.
+
+Thank you,
+
+{$editorFullName}
+{$editorTitle}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>637</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8200</email_key>
+		<subject>{$manuscriptId} Recommendation Invitation Reminder First</subject>
+		<body>Please do not reply to this e-mail.
+
+Dear {$assocEditorFullName},
+
+Just a gentle reminder of our request for your recommendation concerning
+the submission {$manuscriptId} to {$journalTitle}.
+
+We hope to receive your consent/refusal to manage the review the submission in the next few days.
+
+The submission is to be found at
+
+{$submissionUrlAssocEditor}
+
+If you have any questions, please contact me.
+
+{$senderFullName}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>648</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8201</email_key>
+		<subject>{$manuscriptId} Recommendation Invitation Reminder Periodic</subject>
+		<body>Please do not reply to this e-mail.
+
+Dear {$assocEditorFullName},
+
+Just a reminder of our request for your recommendation concerning
+the submission {$manuscriptId} to {$journalTitle}.
+
+We hope to receive your consent/refusal to manage the review the submission in the next few days.
+
+The submission is to be found at
+
+{$submissionUrlAssocEditor}
+
+If you have any questions, please contact me.
+
+{$senderFullName}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>659</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8208</email_key>
+		<subject>{$manuscriptId} Recommendation Completion Reminder First</subject>
+		<body>Please do not reply to this e-mail.
+
+Dear {$assocEditorFullName},
+
+Just a gentle reminder of our request for your recommendation concerning
+the submission {$manuscriptId} to {$journalTitle}.
+
+We were hoping to have your report by {$recommendationDueDate}.
+
+The submission is to be found at
+
+{$submissionUrlAssocEditor}
+
+If you have any questions, please contact me.
+
+{$senderFullName}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>670</email_id>
+		<journal_id>1</journal_id>
+		<email_key>8209</email_key>
+		<subject>{$manuscriptId} Recommendation Completion Reminder Periodic</subject>
+		<body>Please do not reply to this e-mail.
+
+Dear {$assocEditorFullName},
+
+Just a reminder of our request for your recommendation concerning
+the submission {$manuscriptId} to {$journalTitle}.
+
+We were hoping to have your report by {$recommendationDueDate}.
+
+The submission is to be found at
+
+{$submissionUrlAssocEditor}
+
+If you have any questions, please contact me.
+
+{$senderFullName}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>681</email_id>
+		<journal_id>1</journal_id>
+		<email_key>12307</email_key>
+		<subject>{$manuscriptId} No active reviews left</subject>
+		<body>Please do not reply to this e-mail.
+
+Dear {$editorFullName},
+
+You requested {$countAll} reviews from reviewers
+for submission {$manuscriptId} "{$articleTitle}".
+
+{$countCancelled} reviews were cancelled.
+{$countDeclined} reviewers had declined to review.
+{$countCompleted} reviewers have now submitted their reports.
+
+There is no active reviews left.
+Please make your assessment and complete review/recommendation.
+
+--
+{$senderFullName}</body>
+	</ROW>
+
+	<ROW>
+		<email_id>692</email_id>
+		<journal_id>1</journal_id>
+		<email_key>32775</email_key>
+		<subject>{$manuscriptId} Return to EIC</subject>
+		<body>
+Dear {$eicFullName},
+
+I am returning the submission {$manuscriptId} to you for further management.
+
+{$editorFullName}</body>
+	</ROW>
+</DATA>

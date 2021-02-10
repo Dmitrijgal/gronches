@@ -9,7 +9,7 @@ import (
 // XMLData is structure for xml file XML data. It countains XMLRow structures.
 type XMLData struct {
 	XMLName xml.Name `xml:"DATA"`
-	Rows    []XMLRow `xml:"Row"`
+	Rows    []XMLRow `xml:"ROW"`
 }
 
 // XMLRow is single row structure.

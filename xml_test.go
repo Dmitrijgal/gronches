@@ -32,6 +32,15 @@ func TestReadIfEmpty(t *testing.T) {
 		fmt.Printf("error: %v", err)
 	}
 	if (reflect.DeepEqual(data, XMLData{}) == true) {
-		t.Error("TestReadIfEmpty failed, result shouldn`t be empty. \n Check that test file isnt empty and exists. File:", fl)
+		t.Error("TestReadIfEmpty failed, result shouldn`t be empty. \n Before fixing check testfile. File:", fl)
+	}
+}
+
+func TestFindVars(t *testing.T) {
+	have := "Hi {$author}, your journal: {$journal} kinda boring. We need more {$genreAction} with {$characters.main}!"
+	want := "{$author}, {$journal}, {$action}, {$characters.main}"
+	got := FindVars(have)
+	if got != want {
+		t.Errorf("TestFindVars got %d, expected %d", got, want)
 	}
 }

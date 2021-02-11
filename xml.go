@@ -6,14 +6,14 @@ import (
 	"io/ioutil"
 )
 
-// XMLData is structure for xml file XML data. It countains XMLRow structures.
-type XMLData struct {
+// Data is structure for xml file XML data. It countains Row structures.
+type Data struct {
 	XMLName xml.Name `xml:"DATA"`
-	Rows    []XMLRow `xml:"ROW"`
+	Rows    []Row    `xml:"ROW"`
 }
 
-// XMLRow is single row structure.
-type XMLRow struct {
+// Row is single row structure.
+type Row struct {
 	XMLName   xml.Name `xml:"ROW"`
 	EmailID   string   `xml:"email_id"`
 	JournalID string   `xml:"journal_id"`
@@ -23,7 +23,7 @@ type XMLRow struct {
 }
 
 // ReadXML is function to read xml file.
-func ReadXML(r io.Reader) (template XMLData, err error) {
+func ReadXML(r io.Reader) (template Data, err error) {
 	xmlFileData, err := ioutil.ReadAll(r)
 	if err != nil {
 		return template, err
@@ -31,3 +31,5 @@ func ReadXML(r io.Reader) (template XMLData, err error) {
 	xml.Unmarshal(xmlFileData, &template)
 	return template, nil
 }
+
+func FindVars

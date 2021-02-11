@@ -34,33 +34,47 @@ func ReadXML(r io.Reader) (template Data, err error) {
 
 // FindVarsCharBrute is func which searches for variables in given text.
 // Variable type looks like {$...}
-//It kinda works, but definately atm with crash at element like {...}
-// > without $ (searching for way to fix).
 // Also it is probably very unefficent because it goes throw every char.
 func FindVarsCharBrute(s string) string {
 
 	var result string // returning string
 	found := false    // indicator of if var is found and it should be recorded
 
+	// charNum is number of character in recording variable string
+	// because variable starts with {$, we checking not only {, but also
+	// if second character is $, if not then recording is aborted.
+	charNum := 0
+
 	for _, item := range s {
 
-		if item == '{' {
+		if item == '{' { //if { found start recording
 			found = true
 		}
-
-		if item == '}' {
+		if found == true {
+			charNum++
+			if charNum == 2 { //checking is second char is $
+				if item != '$' {
+					//stop recording and delete already recorded, restart counting
+					found = false
+					charNum = 0
+					result = result[:len(result)-1]
+				}
+			}
+		}
+		if item == '}' && found == true { // closing var if } found
 			found = false
+			charNum = 0
 			result += string(item)
 			result += ", "
 		}
 
-		if found == true {
+		if found == true { //recording
 			result += string(item)
 		}
 	}
 
 	//Because we adding ", " after every full found variable it will appear even after last one
-	// which we dont need. Next if trims last ", " if any variable was found
+	// which we dont need. Trims last ", " if any variable {$...} was found
 	if result != "" {
 		result = result[:len(result)-2]
 	}

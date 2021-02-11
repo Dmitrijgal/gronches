@@ -37,10 +37,10 @@ func TestReadIfEmpty(t *testing.T) {
 }
 
 func TestFindVarsCharBrute(t *testing.T) {
-	have := "Hi {$author}, your journal: {$journal} kinda boring. We need more {$genreAction} with {$characters.main}!"
+	have := "{test} Hi {$author}, your journal: {test}{$journal}{test} kinda boring. We need more {$genreAction} with {$characters.main}! {test} {tes} {te} {t} {}"
 	want := "{$author}, {$journal}, {$genreAction}, {$characters.main}"
 	got := FindVarsCharBrute(have)
 	if got != want {
-		t.Errorf("TestFindVars got %s, expected %s", got, want)
+		t.Errorf("TestFindVars got:\n|%s| \n expected: \n |%s|", got, want)
 	}
 }

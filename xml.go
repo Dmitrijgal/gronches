@@ -1,10 +1,14 @@
-package src
+package main
 
 import (
 	"encoding/xml"
 	"io"
 	"io/ioutil"
 )
+
+func main() {
+
+}
 
 // Data is structure for xml file XML data. It countains Row structures.
 type Data struct {

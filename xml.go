@@ -39,21 +39,24 @@ func ReadXML(r io.Reader) (template Data, err error) {
 // FindVarsCharBrute is func which searches for variables in given text.
 // Variable type looks like {$...}
 // Also it is probably very unefficent because it goes throw every char.
-func FindVarsCharBrute(s string) string {
+func FindVarsCharBrute(s string) []string {
 
-	var result string // returning string
-	found := false    // indicator of if var is found and it should be recorded
+	var result []string // returning string
+	var tempString string
+	found := false // indicator of if var is found and it should be recorded
 
 	// charNum is number of character in recording variable string
 	// because variable starts with {$, we checking not only {, but also
 	// if second character is $, if not then recording is aborted.
 	charNum := 0
+	//---------
 
 	for _, item := range s {
 
 		if item == '{' { //if { found start recording
 			found = true
 		}
+
 		if found == true {
 			charNum++
 			if charNum == 2 { //checking is second char is $
@@ -61,26 +64,32 @@ func FindVarsCharBrute(s string) string {
 					//stop recording and delete already recorded, restart counting
 					found = false
 					charNum = 0
-					result = result[:len(result)-1]
+					//result[varNum] = result[varNum][:len(result)-1]
 				}
 			}
 		}
+
 		if item == '}' && found == true { // closing var if } found
 			found = false
 			charNum = 0
-			result += string(item)
-			result += ", "
+
+			tempString += string(item)
+			//THERE MUST BE SOME VALIDATION CODE
+			result = append(result, tempString)
+
 		}
 
 		if found == true { //recording
-			result += string(item)
+			tempString += string(item)
 		}
 	}
 
 	//Because we adding ", " after every full found variable it will appear even after last one
 	// which we dont need. Trims last ", " if any variable {$...} was found
-	if result != "" {
-		result = result[:len(result)-2]
-	}
 	return result
+}
+
+func removeSliceElement(s []string, i int) []string {
+	s[i] = s[len(s)-1]
+	return s[:len(s)-1]
 }

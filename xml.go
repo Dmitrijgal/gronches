@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"io"
 	"io/ioutil"
+	"unicode"
 )
 
 func main() {
@@ -49,6 +50,7 @@ func FindVarsCharBrute(s string) []string {
 	// because variable starts with {$, we checking not only {, but also
 	// if second character is $, if not then recording is aborted.
 	charNum := 0
+	dotFound := false
 	//---------
 
 	for _, item := range s {
@@ -57,15 +59,49 @@ func FindVarsCharBrute(s string) []string {
 			found = true
 		}
 
-		if found == true {
+		if found == true { //All char checks are there
 			charNum++
 			if charNum == 2 { //checking is second char is $
 				if item != '$' {
 					//stop recording and delete already recorded, restart counting
 					found = false
+					tempString = ""
 					charNum = 0
 					//result[varNum] = result[varNum][:len(result)-1]
 				}
+			}
+
+			if charNum > 2 {
+				if !unicode.IsLetter(item) && !unicode.IsNumber(item) && item != '}' && item != '.' {
+					found = false
+					tempString = ""
+					charNum = 0
+				}
+			}
+
+			if charNum == 3 {
+				if item == '.' {
+					found = false
+					tempString = ""
+					charNum = 0
+				}
+			}
+
+			if charNum > 3 { //after 3rd char dot is possible, but only one in a row
+
+				if dotFound == true && item == '.' {
+					found = false
+					dotFound = false
+					charNum = 0
+					tempString = ""
+
+				}
+				if item == '.' {
+					dotFound = true
+				} else {
+					dotFound = false
+				}
+
 			}
 		}
 
@@ -74,8 +110,8 @@ func FindVarsCharBrute(s string) []string {
 			charNum = 0
 
 			tempString += string(item)
-			//THERE MUST BE SOME VALIDATION CODE
 			result = append(result, tempString)
+			tempString = ""
 
 		}
 
@@ -84,12 +120,10 @@ func FindVarsCharBrute(s string) []string {
 		}
 	}
 
-	//Because we adding ", " after every full found variable it will appear even after last one
-	// which we dont need. Trims last ", " if any variable {$...} was found
+	//If no vars were found returning slice with one empty field
+	if result == nil {
+		return []string{""}
+	}
 	return result
-}
 
-func removeSliceElement(s []string, i int) []string {
-	s[i] = s[len(s)-1]
-	return s[:len(s)-1]
 }

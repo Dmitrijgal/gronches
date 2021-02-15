@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"io"
 	"io/ioutil"
+	"sort"
 	"unicode"
 )
 
@@ -37,10 +38,10 @@ func ReadXML(r io.Reader) (template Data, err error) {
 	return template, nil
 }
 
-// FindVarsCharBrute is func which searches for variables in given text.
+// FindVariables is func which searches for variables in given text.
 // Variable type looks like {$...}
 // Also it is probably very unefficent because it goes throw every char.
-func FindVarsCharBrute(s string) []string {
+func FindVariables(s string) []string {
 
 	var result []string // returning string
 	var tempString string
@@ -53,50 +54,42 @@ func FindVarsCharBrute(s string) []string {
 	dotFound := false
 	//---------
 
-	for _, item := range s {
+	for _, char := range s {
 
-		if item == '{' { //if { found start recording
+		if char == '{' { //if { found start recording
 			found = true
+			tempString = ""
+			charNum = 0
 		}
 
 		if found == true { //All char checks are there
 			charNum++
-			if charNum == 2 { //checking is second char is $
-				if item != '$' {
+			if charNum == 2 { //checking if second char is $
+				if char != '$' {
 					//stop recording and delete already recorded, restart counting
 					found = false
-					tempString = ""
-					charNum = 0
-					//result[varNum] = result[varNum][:len(result)-1]
 				}
 			}
 
 			if charNum > 2 {
-				if !unicode.IsLetter(item) && !unicode.IsNumber(item) && item != '}' && item != '.' {
+				if !unicode.IsLetter(char) && !unicode.IsNumber(char) && char != '}' && char != '.' {
 					found = false
-					tempString = ""
-					charNum = 0
 				}
 			}
 
 			if charNum == 3 {
-				if item == '.' {
+				if char == '.' {
 					found = false
-					tempString = ""
-					charNum = 0
 				}
 			}
 
 			if charNum > 3 { //after 3rd char dot is possible, but only one in a row
 
-				if dotFound == true && (item == '.' || item == '}') {
+				if dotFound == true && (char == '.' || char == '}') {
 					found = false
 					dotFound = false
-					charNum = 0
-					tempString = ""
-
 				}
-				if item == '.' {
+				if char == '.' {
 					dotFound = true
 				} else {
 					dotFound = false
@@ -105,17 +98,15 @@ func FindVarsCharBrute(s string) []string {
 			}
 		}
 
-		if item == '}' && found == true { // closing var if } found
+		if char == '}' && found == true { // closing var if } found
 			found = false
-			charNum = 0
-			tempString += string(item)
-			result = append(result, tempString)
-			tempString = ""
+			tempString += string(char)
 
+			result = append(result, tempString)
 		}
 
 		if found == true { //recording
-			tempString += string(item)
+			tempString += string(char)
 		}
 	}
 
@@ -123,6 +114,25 @@ func FindVarsCharBrute(s string) []string {
 	if result == nil {
 		return []string{""}
 	}
+	result = RemoveDuplicates(result)
+	sort.Strings(result)
+
 	return result
 
+}
+
+// RemoveDuplicates clears slice dublicates. !!! returns random order
+func RemoveDuplicates(s []string) []string {
+	encountered := map[string]bool{}
+	// Create a map of all unique elements.
+	for v := range s {
+		encountered[s[v]] = true
+	}
+
+	// Place all keys from the map into a slice.
+	result := []string{}
+	for key := range encountered {
+		result = append(result, key)
+	}
+	return result
 }

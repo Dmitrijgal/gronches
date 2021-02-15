@@ -52,7 +52,6 @@ func FindVariables(s string) []string {
 	// if second character is $, if not then recording is aborted.
 	charNum := 0
 	dotFound := false
-	//---------
 
 	for _, char := range s {
 
@@ -62,50 +61,59 @@ func FindVariables(s string) []string {
 			charNum = 0
 		}
 
-		if found == true { //All char checks are there
-			charNum++
-			if charNum == 2 { //checking if second char is $
-				if char != '$' {
-					//stop recording and delete already recorded, restart counting
-					found = false
-				}
-			}
+		if found == false {
+			continue
+		}
+		// increasing character number at which we are after finding start ('{')
+		charNum++
 
-			if charNum > 2 {
-				if !unicode.IsLetter(char) && !unicode.IsNumber(char) && char != '}' && char != '.' {
-					found = false
-				}
-			}
-
-			if charNum == 3 {
-				if char == '.' {
-					found = false
-				}
-			}
-
-			if charNum > 3 { //after 3rd char dot is possible, but only one in a row
-
-				if dotFound == true && (char == '.' || char == '}') {
-					found = false
-					dotFound = false
-				}
-				if char == '.' {
-					dotFound = true
-				} else {
-					dotFound = false
-				}
-
+		//checking if second char is $
+		if charNum == 2 {
+			if char != '$' {
+				//stop recording and delete already recorded, restart counting
+				found = false
 			}
 		}
 
-		if char == '}' && found == true { // closing var if } found
+		//characters can be letter, number, dot and }
+		if charNum > 2 {
+			if !unicode.IsLetter(char) && !unicode.IsNumber(char) && char != '}' && char != '.' {
+				found = false
+			}
+		}
+
+		//3rd character cant be dot
+		if charNum == 3 {
+			if char == '.' {
+				found = false
+			}
+		}
+
+		//after 3rd char dot is possible, but only one in a row
+		if charNum > 3 {
+
+			if dotFound == true && (char == '.' || char == '}') {
+				found = false
+				dotFound = false
+			}
+			if char == '.' {
+				dotFound = true
+			} else {
+				dotFound = false
+			}
+
+		}
+
+		// if recording and dound } end recording and save result
+		if char == '}' && found == true {
 			found = false
 			tempString += string(char)
 
 			result = append(result, tempString)
 		}
 
-		if found == true { //recording
+		//recording char in temporary string
+		if found == true {
 			tempString += string(char)
 		}
 	}

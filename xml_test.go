@@ -53,15 +53,6 @@ func TestReadIfEmpty(t *testing.T) {
 }
 
 func TestFindVarsCharBrute(t *testing.T) {
-	have := "{test} {$a..} {$aaaaa%} Hi {$author}, your journal: {test}{$journal}{test} kinda boring. We need more {$genreAction} with {$characters.main}! {test} {tes} {te} {t} {}"
-	want := []string{"{$author}", "{$journal}", "{$genreAction}", "{$characters.main}"}
-	got := FindVarsCharBrute(have)
-	fmt.Println(got)
-	fmt.Println(want)
-	assert.Equal(t, want, got)
-}
-
-func TestFindVars(t *testing.T) {
 	var tests = []struct {
 		have string
 		want []string
@@ -69,12 +60,14 @@ func TestFindVars(t *testing.T) {
 		{"Hi {$.text}", []string{""}},
 		{"Hi {$te..xt}", []string{""}},
 		{"Hi {$te.xt}", []string{"{$te.xt}"}},
+		{"Hi {$text.}", []string{""}},
 		{"Hi {$text}, its me {$toster}", []string{"{$text}", "{$toster}"}},
 		{"Hi {$text}, {} its me {$toster}", []string{"{$text}", "{$toster}"}},
 		{"Hi {$text}, {{its me {$toster}", []string{"{$text}", "{$toster}"}},
-		{"Hi {$text},{$$$} its me {$toster}", []string{"{$text}", "{$toster}"}},
-		{"Hi {$name}", []string{"{$name}"}},
-		{"Hi {$name}", []string{"{$name}"}},
+		{"Hi {$text}, {${its me {$toster}", []string{"{$text}", "{$toster}"}},
+		{"Hi {$text},{$$$} its me {$toster}. Your bread is in another castle{$A!", []string{"{$text}", "{$toster}"}},
+		{"{test} {$a..} {$aaaaa%} Hi {$author}, your journal: {test}{$journal}{test} kinda boring. We need more {$genreAction} with {$characters.main}! {test} {tes} {te} {t} {}",
+			[]string{"{$author}", "{$journal}", "{$genreAction}", "{$characters.main}"}},
 	}
 	for _, test := range tests {
 		assert.Equal(t, test.want, FindVarsCharBrute(test.have))

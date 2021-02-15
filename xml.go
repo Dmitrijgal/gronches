@@ -89,7 +89,7 @@ func FindVarsCharBrute(s string) []string {
 
 			if charNum > 3 { //after 3rd char dot is possible, but only one in a row
 
-				if dotFound == true && item == '.' {
+				if dotFound == true && (item == '.' || item == '}') {
 					found = false
 					dotFound = false
 					charNum = 0
@@ -108,7 +108,6 @@ func FindVarsCharBrute(s string) []string {
 		if item == '}' && found == true { // closing var if } found
 			found = false
 			charNum = 0
-
 			tempString += string(item)
 			result = append(result, tempString)
 			tempString = ""

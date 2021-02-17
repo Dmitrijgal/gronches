@@ -78,7 +78,7 @@ func FindVariables(s string) []string {
 			}
 		}
 
-		//3rd character cant be dot
+		//thought dot is possible, it cant be 3rd character
 		if charNum == 3 {
 			if char == '.' {
 				found = false
@@ -91,35 +91,32 @@ func FindVariables(s string) []string {
 				found = false
 				continue
 			}
-		}
 
-		//after 3rd char dot is possible, but only one in a row
-		if charNum > 3 {
+			//after 3rd char dot is possible, but only one in a row
 			if dotFound == true && (char == '.' || char == '}') {
 				found = false
 				dotFound = false
 				continue
 			}
+
 			if char == '.' {
 				dotFound = true
 			} else {
 				dotFound = false
 			}
 
-		}
-
-		// if recording and dound } end recording and save result
-		if char == '}' && found == true {
-			found = false
-			tempString += string(char)
-			result = append(result, tempString)
-			continue
+			// if recording and dound } end recording and save result
+			if char == '}' {
+				found = false
+				tempString += string(char)
+				result = append(result, tempString)
+				continue
+			}
 		}
 
 		//recording char in temporary string
-		if found == true {
-			tempString += string(char)
-		}
+		tempString += string(char)
+
 	}
 
 	//If no vars were found returning slice with one empty field

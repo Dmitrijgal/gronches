@@ -62,9 +62,11 @@ func FindVariables(s string) []string {
 		}
 
 		if found == false {
+			//skipping rest if start of variable not found
 			continue
 		}
-		// increasing character number at which we are after finding start ('{')
+
+		// increasing character number at which char we are after finding start ('{')
 		charNum++
 
 		//checking if second char is $
@@ -72,13 +74,7 @@ func FindVariables(s string) []string {
 			if char != '$' {
 				//stop recording and delete already recorded, restart counting
 				found = false
-			}
-		}
-
-		//characters can be letter, number, dot and }
-		if charNum > 2 {
-			if !unicode.IsLetter(char) && !unicode.IsNumber(char) && char != '}' && char != '.' {
-				found = false
+				continue
 			}
 		}
 
@@ -86,15 +82,23 @@ func FindVariables(s string) []string {
 		if charNum == 3 {
 			if char == '.' {
 				found = false
+				continue
+			}
+		}
+		//characters can be letter, number, dot and }
+		if charNum > 3 {
+			if !unicode.IsLetter(char) && !unicode.IsNumber(char) && char != '}' && char != '.' {
+				found = false
+				continue
 			}
 		}
 
 		//after 3rd char dot is possible, but only one in a row
 		if charNum > 3 {
-
 			if dotFound == true && (char == '.' || char == '}') {
 				found = false
 				dotFound = false
+				continue
 			}
 			if char == '.' {
 				dotFound = true
@@ -108,8 +112,8 @@ func FindVariables(s string) []string {
 		if char == '}' && found == true {
 			found = false
 			tempString += string(char)
-
 			result = append(result, tempString)
+			continue
 		}
 
 		//recording char in temporary string

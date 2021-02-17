@@ -109,7 +109,7 @@ func TestFindVariablesFromFile(t *testing.T) {
 
 }
 
-func BenchmarkFindVariables(t *testing.B) {
+func BenchmarkFindVariables(b *testing.B) {
 	var tests = []struct {
 		have string
 		want []string
@@ -126,7 +126,8 @@ func BenchmarkFindVariables(t *testing.B) {
 		{"{test} {$a..} {$aaaaa%} Hi {$author}, your journal: {test}{$journal}{test} kinda boring. We need more {$genreAction} with {$characters.main}! {test} {tes} {te} {t} {}",
 			[]string{"{$author}", "{$characters.main}", "{$genreAction}", "{$journal}"}},
 	}
+	b.ResetTimer()
 	for _, test := range tests {
-		assert.Equal(t, test.want, FindVariables(test.have))
+		assert.Equal(b, test.want, FindVariables(test.have))
 	}
 }

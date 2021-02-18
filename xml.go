@@ -39,23 +39,18 @@ func ReadXML(r io.Reader) (template Data, err error) {
 }
 
 // FindVariables is func which searches for variables in given text.
-// Variable type looks like {$...}
-// Also it is probably very unefficent because it goes throw every char.
+// Variable type looks like {$...}.
 func FindVariables(s string) []string {
 
-	var result []string // returning string
+	var result []string // Returning string
 	var tempString string
-	found := false // indicator of if var is found and it should be recorded
-
-	// charNum is number of character in recording variable string
-	// because variable starts with {$, we checking not only {, but also
-	// if second character is $, if not then recording is aborted.
-	charNum := 0
+	found := false // Indicator of if var is found and it should be recorded
+	charNum := 0   // Number of character in recording variable string
 	dotFound := false
 
 	for _, char := range s {
-
-		if char == '{' { //if { found start recording
+		if char == '{' {
+			//if '{' found start recording
 			found = true
 			tempString = ""
 			charNum = 0
@@ -70,42 +65,34 @@ func FindVariables(s string) []string {
 		charNum++
 
 		//checking if second char is $
-		if charNum == 2 {
-			if char != '$' {
-				//stop recording and delete already recorded, restart counting
-				found = false
-				continue
-			}
+		if charNum == 2 && char != '$' {
+			//stop recording and delete already recorded, restart counting
+			found = false
+			continue
 		}
 
-		//thought dot is possible, it cant be 3rd character
-		if charNum == 3 {
-			if char == '.' {
-				found = false
-				continue
-			}
+		//Character can be is possible, it cant be 3rd character
+		if charNum == 3 && char == '.' {
+			found = false
+			continue
 		}
-		//characters can be letter, number, dot and }
+
 		if charNum > 3 {
+			//Characters can be letter, number, dot and '}'
 			if !unicode.IsLetter(char) && !unicode.IsNumber(char) && char != '}' && char != '.' {
 				found = false
 				continue
 			}
 
-			//after 3rd char dot is possible, but only one in a row
+			//After 3rd char dot is possible, but only one in a row
 			if dotFound == true && (char == '.' || char == '}') {
 				found = false
 				dotFound = false
 				continue
 			}
 
-			if char == '.' {
-				dotFound = true
-			} else {
-				dotFound = false
-			}
-
-			// if recording and dound } end recording and save result
+			dotFound = char == '.'
+			//If recording and found '}', end recording and save result
 			if char == '}' {
 				found = false
 				tempString += string(char)
@@ -113,32 +100,29 @@ func FindVariables(s string) []string {
 				continue
 			}
 		}
-
-		//recording char in temporary string
+		//Recording char in temporary string
 		tempString += string(char)
-
 	}
 
-	//If no vars were found returning slice with one empty field
 	if result == nil {
+		//If no vars were found returning slice with one empty field
 		return []string{""}
 	}
+	//Removing duplicates, sorting and returning result
 	result = RemoveDuplicates(result)
 	sort.Strings(result)
-
 	return result
-
 }
 
 // RemoveDuplicates clears slice dublicates. !!! returns random order
 func RemoveDuplicates(s []string) []string {
 	encountered := map[string]bool{}
-	// Create a map of all unique elements.
+	//Create a map of all unique elements.
 	for v := range s {
 		encountered[s[v]] = true
 	}
 
-	// Place all keys from the map into a slice.
+	//Place all keys from the map into a slice.
 	result := []string{}
 	for key := range encountered {
 		result = append(result, key)

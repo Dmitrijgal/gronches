@@ -81,7 +81,7 @@ func FindVariables(s string) []string {
 	return result
 }
 
-// removeDuplicates clears slice dublicates. !!! returns random order
+// RemoveDuplicates clears slice dublicates. Returns random order!
 func removeDuplicates(s []string) []string {
 	encountered := map[string]bool{}
 	//Create a map of all unique elements.

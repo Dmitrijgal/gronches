@@ -1,0 +1,18 @@
+<DATA>
+	<ROW>
+		<email_id>1</email_id>
+		<journal_id>1</journal_id>
+		<email_key>1</email_key>
+		<subject>{$manuscriptId} New Submission</subject>
+		<body>Please, do not reply to this email.&#xA;&#xA;A new article has been submitted to {$journalTitle}.&#xA;&#xA;Submission URL: {$journalUrl}&#xA;&#xA;Title:&#xA;{$articleTitle}&#xA;&#xA;Corresponding author:&#xA;{$correspondingAuthor}&#xA;&#xA;Authors:&#xA;{$otherAuthors}&#xA;&#xA;Abstract:&#xA;{$articleAbstract}</body>
+		<variables></variables>
+	</ROW>
+	<ROW>
+		<email_id>2</email_id>
+		<journal_id>1</journal_id>
+		<email_key>2</email_key>
+		<subject>{$manuscriptId} Submission Acknowledgment</subject>
+		<body>Please, do not reply to this email.&#xA;&#xA;Dear {$authorFullName},&#xA;&#xA;Thank you for your submission of the article &#34;{$submissionTitle}&#34;&#xA;(manuscript ID {$manuscriptId}) to {$journalTitle}.&#xA;&#xA;Sincerely,&#xA;Sonia Petrone&#xA;Editor of Statistical Science&#xA;sonia.petrone@unibocconi.it&#xA;&#xA;Submission URL: {$journalUrl}&#xA;&#xA;Title:&#xA;{$articleTitle}&#xA;&#xA;Authors:&#xA;{$articleAuthors}&#xA;&#xA;Abstract:&#xA;{$articleAbstract}</body>
+		<variables></variables>
+	</ROW>
+</DATA>

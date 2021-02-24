@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-	
 
 }
 
@@ -39,12 +38,9 @@ func ReadXML(r io.Reader) (template Data, err error) {
 	return template, nil
 }
 
-//AppendVariablesToXML is function which receives template as xml, and returns it with extra row.
-//Row contains all unique variables which were used in template subject and body.
-func AppendVariablesToXML(template Data) Data {
-	for i, row := range template.Row {
-		variables := FindVariables(row.Subject + row.Body)
-		template.Row[i].Variables = strings.Join(variables, ", ")
-	}
-	return template
+//AppendVariables is function which receives row, and returns it with variables.
+//Variables are parsed from subject and body.
+func (r Row) AppendVariables() Row {
+	r.Variables = strings.Join(FindVariables(r.Subject+" "+r.Body), ", ")
+	return r
 }

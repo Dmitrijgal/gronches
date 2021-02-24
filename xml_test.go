@@ -39,7 +39,11 @@ func TestXMLAddVal(t *testing.T) {
 	if err != nil {
 		fmt.Printf("error: %v", err)
 	}
-	template := AppendVariablesToXML(data)
-	file, _ := xml.MarshalIndent(template, "", "	")
+
+	for _, row := range data.Row {
+		row = row.AppendVariables()
+	}
+
+	file, _ := xml.MarshalIndent(data, "", "	")
 	_ = ioutil.WriteFile("testdata/templateWithVariable.xml", file, 0644)
 }

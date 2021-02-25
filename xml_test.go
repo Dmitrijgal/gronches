@@ -27,7 +27,7 @@ func TestReadIfEmpty(t *testing.T) {
 }
 
 func TestXMLAddVal(t *testing.T) {
-	//At the moment this "test" just outputs file, which I chekc by myself
+	//At the moment this "test" just outputs file, which I check by myself
 	fl := "testdata/templates.xml"
 	f, err := os.Open(fl)
 	if err != nil {
@@ -40,8 +40,8 @@ func TestXMLAddVal(t *testing.T) {
 		fmt.Printf("error: %v", err)
 	}
 
-	for _, row := range data.Row {
-		row = row.AppendVariables()
+	for i, row := range data.Row {
+		data.Row[i] = row.AppendVariables()
 	}
 
 	file, _ := xml.MarshalIndent(data, "", "	")

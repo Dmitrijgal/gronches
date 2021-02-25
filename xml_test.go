@@ -7,6 +7,8 @@ import (
 	"os"
 	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestReadIfEmpty(t *testing.T) {
@@ -27,7 +29,6 @@ func TestReadIfEmpty(t *testing.T) {
 }
 
 func TestXMLAddVal(t *testing.T) {
-	//At the moment this "test" just outputs file, which I check by myself
 	fl := "testdata/templates.xml"
 	f, err := os.Open(fl)
 	if err != nil {
@@ -37,13 +38,23 @@ func TestXMLAddVal(t *testing.T) {
 
 	data, err := ReadXML(f)
 	if err != nil {
-		fmt.Printf("error: %v", err)
+		t.Error("Error reading file")
 	}
 
-	for i, row := range data.Row {
-		data.Row[i] = row.AppendVariables()
+	want := data
+	want.Row[0].Variables = "{$articleAbstract}, {$articleTitle}, {$correspondingAuthor}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$otherAuthors}"
+	want.Row[1].Variables = "{$articleAbstract}, {$articleAuthors}, {$articleTitle}, {$authorFullName}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$submissionTitle}"
+
+	got := data
+
+	for i, row := range got.Row {
+		got.Row[i] = row.AppendVariables()
 	}
 
+	//FIle is written mainly for self-check
 	file, _ := xml.MarshalIndent(data, "", "	")
-	_ = ioutil.WriteFile("testdata/templateWithVariable.xml", file, 0644)
+	_ = ioutil.WriteFile("testdata/templateWithVariableTest.xml", file, 0644)
+
+	assert.Equal(t, want, got)
+
 }

@@ -12,13 +12,13 @@ func main() {
 }
 
 // Data is structure for xml file XML data. It countains Row structures.
-type Data struct {
+type Data struct { // rename
 	XMLName xml.Name `xml:"DATA"`
 	Row     []Row    `xml:"ROW"`
 }
 
 // Row is single row structure.
-type Row struct {
+type Row struct { //rename
 	XMLName   xml.Name `xml:"ROW"`
 	EmailID   string   `xml:"email_id"`
 	JournalID string   `xml:"journal_id"`
@@ -40,7 +40,6 @@ func ReadXML(r io.Reader) (template Data, err error) {
 
 //AppendVariables is function which receives row, and returns it with variables.
 //Variables are parsed from subject and body.
-func (r Row) AppendVariables() Row {
+func (r *Row) AppendVariables() {
 	r.Variables = strings.Join(FindVariables(r.Subject+" "+r.Body), ", ")
-	return r
 }

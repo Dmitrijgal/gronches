@@ -47,9 +47,8 @@ func TestXMLAddVal(t *testing.T) {
 
 	got := data
 
-	for i, row := range got.Row {
-		got.Row[i] = row.AppendVariables()
-	}
+	got.Row[0].AppendVariables()
+	got.Row[1].AppendVariables()
 
 	//FIle is written mainly for self-check
 	file, _ := xml.MarshalIndent(data, "", "	")

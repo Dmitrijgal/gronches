@@ -23,7 +23,7 @@ func TestReadIfEmpty(t *testing.T) {
 	if err != nil {
 		fmt.Printf("error: %v", err)
 	}
-	if (reflect.DeepEqual(data, Data{}) == true) {
+	if (reflect.DeepEqual(data, List{}) == true) {
 		t.Error("TestReadIfEmpty failed, result shouldn`t be empty. \n Before fixing check testfile. File:", fl)
 	}
 }
@@ -42,13 +42,13 @@ func TestXMLAddVal(t *testing.T) {
 	}
 
 	want := data
-	want.Row[0].Variables = "{$articleAbstract}, {$articleTitle}, {$correspondingAuthor}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$otherAuthors}"
-	want.Row[1].Variables = "{$articleAbstract}, {$articleAuthors}, {$articleTitle}, {$authorFullName}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$submissionTitle}"
+	want.Template[0].Variables = "{$articleAbstract}, {$articleTitle}, {$correspondingAuthor}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$otherAuthors}"
+	want.Template[1].Variables = "{$articleAbstract}, {$articleAuthors}, {$articleTitle}, {$authorFullName}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$submissionTitle}"
 
 	got := data
 
-	got.Row[0].AppendVariables()
-	got.Row[1].AppendVariables()
+	got.Template[0].AppendVariables()
+	got.Template[1].AppendVariables()
 
 	//FIle is written mainly for self-check
 	file, _ := xml.MarshalIndent(data, "", "	")

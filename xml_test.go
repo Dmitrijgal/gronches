@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/xml"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"reflect"
 	"testing"
@@ -28,33 +26,36 @@ func TestReadIfEmpty(t *testing.T) {
 	}
 }
 
-var TestStruct = Template{}
+var TestTemplate = Template{
+	EmailID:   "1",
+	JournalID: "1",
+	EmailKey:  "1",
+	Subject:   "{$manuscriptId} New Submission",
+	Body: `Please, do not reply to this email.
+
+	A new article has been submitted to {$journalTitle}.
+	
+	Submission URL: {$journalUrl}
+	
+	Title:
+	{$articleTitle}
+	
+	Corresponding author:
+	{$correspondingAuthor}
+	
+	Authors:
+	{$otherAuthors}
+	
+	Abstract:
+	{$articleAbstract}`}
 
 func TestXMLAddVal(t *testing.T) {
-	fl := "testdata/templates.xml"
-	f, err := os.Open(fl)
-	if err != nil {
-		t.Error("Test failed, cant read test file ", fl)
-	}
-	defer f.Close()
 
-	data, err := ReadXML(f)
-	if err != nil {
-		t.Error("Error reading file")
-	}
+	want := TestTemplate
+	got := TestTemplate
 
-	want := data
-	want.Template[0].Variables = "{$articleAbstract}, {$articleTitle}, {$correspondingAuthor}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$otherAuthors}"
-	want.Template[1].Variables = "{$articleAbstract}, {$articleAuthors}, {$articleTitle}, {$authorFullName}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$submissionTitle}"
-
-	got := data
-
-	got.Template[0].AppendVariables()
-	got.Template[1].AppendVariables()
-
-	//FIle is written mainly for self-check
-	file, _ := xml.MarshalIndent(data, "", "	")
-	_ = ioutil.WriteFile("testdata/templateWithVariableTest.xml", file, 0644)
+	want.Variables = "{$articleAbstract}, {$articleTitle}, {$correspondingAuthor}, {$journalTitle}, {$journalUrl}, {$manuscriptId}, {$otherAuthors}"
+	got.AppendVariables()
 
 	assert.Equal(t, want, got)
 

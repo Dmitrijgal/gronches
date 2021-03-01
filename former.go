@@ -7,14 +7,14 @@ import (
 	"strings"
 )
 
-// TemplateList is structure for xml file XMLTemplateList. It countains Row structures.
+// TemplateList is structure for saving data which later will be parsed. It countains Template structures.
 type TemplateList struct { // rename
 	XMLName  xml.Name   `xml:"DATA"`
 	Template []Template `xml:"ROW"`
 }
 
 // Template is single template structure.
-// Represents a sinle row.
+// Represents a sinle template row.
 type Template struct { //rename
 	XMLName   xml.Name `xml:"ROW"`
 	EmailID   string   `xml:"email_id"`

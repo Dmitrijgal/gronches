@@ -7,12 +7,8 @@ import (
 	"strings"
 )
 
-func main() {
-
-}
-
-// List is structure for xml file XML List. It countains Row structures.
-type List struct { // rename
+// TemplateList is structure for xml file XMLTemplateList. It countains Row structures.
+type TemplateList struct { // rename
 	XMLName  xml.Name   `xml:"DATA"`
 	Template []Template `xml:"ROW"`
 }
@@ -30,7 +26,7 @@ type Template struct { //rename
 }
 
 // ReadXML is function to read xml file.
-func ReadXML(r io.Reader) (template List, err error) {
+func ReadXML(r io.Reader) (template TemplateList, err error) {
 	templateList, err := ioutil.ReadAll(r)
 	if err != nil {
 		return template, err

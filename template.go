@@ -14,7 +14,7 @@ type Template struct { //rename
 	EmailKey  string   `xml:"email_key"`
 	Subject   string   `xml:"subject"`
 	Body      string   `xml:"body"`
-	Variables string   `xml:"variables"`
+	Variables string   `xml:"variables,omitempty"`
 }
 
 //AppendVariables is function which receives row, and returns it with variables.

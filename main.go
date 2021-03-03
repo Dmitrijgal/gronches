@@ -14,7 +14,10 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Input file name:")
 
-	fileName, _ := reader.ReadString('\n')
+	fileName, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println(err)
+	}
 	fileName = strings.Trim(fileName, " \n")
 
 	file, err := os.Open(fileName)
@@ -30,7 +33,10 @@ func main() {
 
 	templateData.AppendVariables()
 
-	newFile, _ := xml.MarshalIndent(templateData, "", " ")
+	newFile, err := xml.MarshalIndent(templateData, "", " ")
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	_ = ioutil.WriteFile("result.xml", newFile, 0644)
 

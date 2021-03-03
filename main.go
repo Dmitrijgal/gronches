@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/xml"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -35,14 +34,4 @@ func main() {
 
 	_ = ioutil.WriteFile("result.xml", newFile, 0644)
 
-}
-
-// ReadUnmarshalXML is function to read xml file.
-func ReadUnmarshalXML(r io.Reader) (template TemplatesList, err error) {
-	data, err := ioutil.ReadAll(r)
-	if err != nil {
-		return template, err
-	}
-	xml.Unmarshal(data, &template)
-	return template, nil
 }

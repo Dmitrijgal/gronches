@@ -1,30 +1,31 @@
 package main
 
 import (
-	"bufio"
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
 	"os"
-	"strings"
 )
 
 func main() {
-
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("Input file name (press Enter for default (templates.xml)):")
-
-	fileName, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println(err)
+	if len(os.Args) == 2 && os.Args[1] == "help" {
+		fmt.Println("Program requires 2 arguments path and output argument. \n Output arguments: \n -c \t console \n -f \t file \n -cf \t console and file")
+		os.Exit(1)
 	}
-	fileName = strings.Trim(fileName, " \n")
-
-	if fileName == "" {
-		fileName = "templates.xml"
+	if len(os.Args) < 3 {
+		fmt.Println("Not enought arguments. See help.")
+		os.Exit(1)
 	}
 
-	file, err := os.Open(fileName)
+	if len(os.Args) > 3 {
+		fmt.Println("Too many arguments. See help.")
+		os.Exit(1)
+	}
+
+	filePath := os.Args[1]
+	outputArguments := os.Args[2]
+
+	file, err := os.Open(filePath)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -34,30 +35,28 @@ func main() {
 	templateData, err := ReadUnmarshalXML(file)
 	if err != nil {
 		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	templateData.AppendVariables()
 
-	dataMarshalled, err := xml.MarshalIndent(templateData, "", " ")
+	dataMarshalled, err := xml.MarshalIndent(templateData, "	", "	")
 	if err != nil {
 		fmt.Println(err)
+		os.Exit(1)
 
 	}
-	fmt.Println("Chose output: \n 1 for Console \n 2 for new file \n 3 for Console and file")
-	choice, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println(err)
-	}
-	choice = strings.Trim(choice, " \n")
-	fmt.Println(choice)
+
 	switch {
-	case choice == "1":
+	case outputArguments == "-c":
 		fmt.Println(string(dataMarshalled))
-	case choice == "2":
-		_ = ioutil.WriteFile("new_"+fileName, dataMarshalled, 0644)
-	case choice == "3":
+	case outputArguments == "-f":
+		_ = ioutil.WriteFile("output.xml", dataMarshalled, 0644)
+	case outputArguments == "-fc" || outputArguments == "-cf":
 		fmt.Println(string(dataMarshalled))
-		_ = ioutil.WriteFile("new_"+fileName, dataMarshalled, 0644)
+		_ = ioutil.WriteFile("output.xml", dataMarshalled, 0644)
+	default:
+		fmt.Println(outputArguments, "is not a valid comand. See help.")
 	}
 
 }

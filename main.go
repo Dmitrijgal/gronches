@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -46,6 +47,9 @@ func main() {
 		os.Exit(1)
 
 	}
+
+	var Replacer = strings.NewReplacer("&#xA;", "\n", "&#34;", string('"'), "&#39;", "'", "&#x9;", "\t")
+	dataMarshalled = []byte(Replacer.Replace(string(dataMarshalled)))
 
 	switch {
 	case outputArguments == "-c":

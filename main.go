@@ -48,7 +48,8 @@ func main() {
 
 	}
 
-	var Replacer = strings.NewReplacer("&#xA;", "\n", "&#34;", string('"'), "&#39;", "'", "&#x9;", "\t")
+	var Replacer = strings.NewReplacer("&#xA;", "\n", "&#34;", string('"'), "&#39;", "'", "&#x9;", "\t",
+		"&amp;", "&", "&lt;", "<", "&gt;", ">", "&#xD;", "\r")
 	dataMarshalled = []byte(Replacer.Replace(string(dataMarshalled)))
 
 	switch {

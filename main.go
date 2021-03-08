@@ -35,9 +35,8 @@ func main() {
 
 	}
 
-	var Replacer = strings.NewReplacer("&#xA;", "\n", "&#34;", string('"'), "&#39;", "'", "&#x9;", "\t",
-		"&amp;", "&", "&lt;", "<", "&gt;", ">", "&#xD;", "\r")
-	dataMarshalled = []byte(Replacer.Replace(string(dataMarshalled)))
+	var replacer = strings.NewReplacer("&#xA;", "\n", "&#34;", string('"'), "&#39;", "'", "&#x9;", "\t")
+	dataMarshalled = []byte(replacer.Replace(string(dataMarshalled)))
 
 	fmt.Println(string(dataMarshalled))
 

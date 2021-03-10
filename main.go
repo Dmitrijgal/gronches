@@ -29,7 +29,7 @@ func main() {
 
 	templateData.AppendVariables()
 
-	dataMarshalled, err := xml.MarshalIndent(templateData, "	", "	")
+	dataMarshalled, err := xml.MarshalIndent(templateData, "", "	")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)

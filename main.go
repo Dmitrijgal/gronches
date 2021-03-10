@@ -23,7 +23,7 @@ func main() {
 
 	templateData, err := ReadUnmarshalXML(file)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error unmarshalling file: \n", err)
 		os.Exit(1)
 	}
 
@@ -31,7 +31,7 @@ func main() {
 
 	dataMarshalled, err := xml.MarshalIndent(templateData, "", "	")
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error marshalling data: \n", err)
 		os.Exit(1)
 
 	}
@@ -43,7 +43,7 @@ func main() {
 
 		err := ioutil.WriteFile(*output, dataMarshalled, 0644)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println("Error writing file: \n", err)
 			os.Exit(1)
 		}
 	} else {

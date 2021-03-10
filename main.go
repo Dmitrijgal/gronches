@@ -10,11 +10,9 @@ import (
 )
 
 func main() {
-	output := flag.Bool("output", false, "Output data in file. Requires new file path after input file path")
+	output := flag.String("output", "", "Output data in file. Requires output file path.")
 	flag.Parse()
-
 	inputFilePath := flag.Arg(0)
-	fmt.Println(*output)
 
 	file, err := os.Open(inputFilePath)
 	if err != nil {
@@ -41,9 +39,9 @@ func main() {
 	var replacer = strings.NewReplacer("&#xA;", "\n", "&#34;", string('"'), "&#39;", "'", "&#x9;", "\t")
 	dataMarshalled = []byte(replacer.Replace(string(dataMarshalled)))
 
-	if *output {
-		outputFilePath := flag.Arg(1)
-		err := ioutil.WriteFile(outputFilePath, dataMarshalled, 0644)
+	if *output != "" {
+
+		err := ioutil.WriteFile(*output, dataMarshalled, 0644)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)

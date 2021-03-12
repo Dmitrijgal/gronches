@@ -5,40 +5,41 @@ import (
 	"unicode"
 )
 
-// FindVariables is func which searches for variables in given text.
+// FindVariables is function which searches for variables in given text.
 // Variable type looks like {$...}.
 func FindVariables(s string) []string {
-
-	var result []string // Returning string
+	// Returning string
+	var result []string
 	var tempString string
-	found := false // Indicator of if var is found and it should be recorded
-	charNum := 0   // Number of character in recording variable string
+	//Indicator of if variable is found and should be recorded
+	found := false
+	//Rune position in recording variable string
+	charNum := 0
 	dotFound := false
 
 	for _, char := range s {
 		if char == '{' {
-			//if '{' found start recording
+			//If '{' found start recording
 			found = true
 			tempString = ""
 			charNum = 0
 		}
 
 		if found == false {
-			//skipping rest if start of variable not found
+			//Skipping rest if start of variable not found
 			continue
 		}
 
-		// increasing character number at which char we are after finding start ('{')
+		//Increasing character number at which char we are, after finding start ('{')
 		charNum++
 
-		//checking if second char is $
+		//Checking if second char is $
 		if charNum == 2 && char != '$' {
-			//stop recording and delete already recorded, restart counting
 			found = false
 			continue
 		}
 
-		//Character can be is possible, it cant be 3rd character
+		//Character can be dot, but it cant be 3rd character
 		if charNum == 3 && char == '.' {
 			found = false
 			continue

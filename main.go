@@ -10,13 +10,13 @@ import (
 )
 
 //Ejms-template receives templates list file
-//and returs it with new variable row.
+//and returns it with new variable row.
 //Program should be launched with arguments.
 //Input file path is mandatory argument, and should be
 //right after flagged ("-") arguments.
 //Flagged arguments should be used first.
 //Flagged arguments:
-//	"-output {outputFilePath}
+//	-output {output file path}
 
 func main() {
 	output := flag.String("output", "", "Output data in file. Requires output file path.")
@@ -41,7 +41,7 @@ func main() {
 	//Appending variable row to structure.
 	templateData.AppendVariables()
 
-	//Marshalling data back
+	//Marshalling data back.
 	dataMarshalled, err := xml.MarshalIndent(templateData, "", "	")
 	if err != nil {
 		fmt.Println("Error marshalling data: \n", err)
@@ -54,7 +54,7 @@ func main() {
 	dataMarshalled = []byte(replacer.Replace(string(dataMarshalled)))
 
 	if *output != "" {
-		//Writing data in file if argument were written, else display in console
+		//Writing data in file if argument were written, else display in console.
 		err := ioutil.WriteFile(*output, dataMarshalled, 0644)
 		if err != nil {
 			fmt.Println("Error writing file: \n", err)

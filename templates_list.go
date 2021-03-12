@@ -21,7 +21,7 @@ func (templateList *TemplatesList) AppendVariables() {
 	}
 }
 
-// ReadUnmarshalXML is function to read xml file.
+// ReadUnmarshalXML is function to read and unmarshal xml file.
 func ReadUnmarshalXML(r io.Reader) (template TemplatesList, err error) {
 	data, err := ioutil.ReadAll(r)
 	if err != nil {

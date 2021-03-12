@@ -7,7 +7,7 @@ import (
 
 // Template is single template structure.
 // Represents a sinle template row.
-type Template struct { //rename
+type Template struct {
 	XMLName   xml.Name `xml:"ROW"`
 	EmailID   string   `xml:"email_id"`
 	JournalID string   `xml:"journal_id"`
